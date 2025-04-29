@@ -12,69 +12,80 @@ const Forall = () => {
         background: '#000',
         py: 5,
         px: 2,
-        // borderRadius: 2,
         boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
       }}
     >
-      {/* Colorful Bubbles */}
+      {/* Unique Bubbles */}
       <Box
         sx={{
           position: 'absolute',
-          width: '100%',
-          height: '100%',
           top: 0,
           left: 0,
+          width: '100%',
+          height: '100%',
           zIndex: 0,
+          pointerEvents: 'none',
           overflow: 'hidden',
         }}
       >
-        {Array.from({ length: 20 }).map((_, i) => {
-          const size = 10 + Math.random() * 25;
+        {Array.from({ length: 25 }).map((_, i) => {
+          const size = 20 + Math.random() * 40;
           const color = colors[Math.floor(Math.random() * colors.length)];
-          const duration = 5 + Math.random() * 8;
-          const left = Math.random() * 100;
-          const delay = Math.random() * 5;
+          const duration = 8 + Math.random() * 10; // Duration between 8s to 18s
+          const left = Math.random() * 100; // Random horizontal position
+          const delay = Math.random() * 6; // Random delay before animation starts
+          const blur = 1 + Math.random() * 3; // Random blur
+          const z = Math.floor(Math.random() * 3); // Random z-index for layering
 
           return (
             <Box
               key={i}
               sx={{
                 position: 'absolute',
-                bottom: '-80px',
+                bottom: '-100px',
                 width: size,
                 height: size,
-                backgroundColor: color,
+                background: `radial-gradient(circle at 30% 30%, ${color}, transparent 70%)`,
                 borderRadius: '50%',
-                opacity: 0.4 + Math.random() * 0.4,
-                filter: 'blur(1px)',
-                animation: `riseBubble ${duration}s ease-in infinite`,
-                animationDelay: `${delay}s`,
-                left: `${left}%`,
+                opacity: 0.3 + Math.random() * 0.4, // Random opacity
+                filter: `blur(${blur}px)`,
+                animation: `riseBubble${z} ${duration}s ease-in infinite`,
+                animationDelay: `${delay}s`, // Random delay to start animation
+                left: `${left}%`, // Random horizontal positioning
+                zIndex: z, // Random z-index
               }}
             />
           );
         })}
       </Box>
 
-      {/* Foreground Content - Now in row layout */}
+      {/* Foreground Content */}
       <Box
         sx={{
           position: 'relative',
           zIndex: 1,
           display: 'flex',
-          flexDirection: 'row', // Changed from column to row
+          flexDirection: { xs: 'row', sm: 'row' },
           alignItems: 'center',
-          justifyContent: 'center', // Center horizontally
+          justifyContent: 'center',
           textAlign: 'center',
-          gap: 4, // Increased gap for better spacing
-          flexWrap: 'wrap', // Allows wrapping on smaller screens
+          gap: { xs: 2, sm: 4 },
+          flexWrap: 'wrap',
         }}
       >
-        <Typography variant='h4' sx={{ fontWeight: 600, color: '#fff', mb: 0 }}>
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: 600,
+            color: '#fff',
+            mb: 0,
+            fontSize: { xs: '1rem', sm: '1.5rem', md: '2rem' },
+          }}
+        >
           For all your queries
         </Typography>
-        
-        <Box sx={{ display: 'flex', gap: 2 }}> {/* Button container with gap */}
+
+        <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
           <Button
             variant="contained"
             sx={{
@@ -94,7 +105,7 @@ const Forall = () => {
           >
             Contact Us
           </Button>
-          
+
           <Button
             variant="outlined"
             sx={{
@@ -118,16 +129,36 @@ const Forall = () => {
         </Box>
       </Box>
 
-      {/* Keyframes */}
+      {/* Keyframes for continuous bubble animations */}
       <style>
         {`
-          @keyframes riseBubble {
+          @keyframes riseBubble0 {
             0% {
-              transform: translateY(0) scale(1);
+              transform: translateY(0) scale(1) rotate(0deg);
+              opacity: 0.9;
+            }
+            100% {
+              transform: translateY(-900px) scale(0.8) rotate(360deg);
+              opacity: 0;
+            }
+          }
+          @keyframes riseBubble1 {
+            0% {
+              transform: translateY(0) scale(1.2) rotate(0deg);
               opacity: 1;
             }
             100% {
-              transform: translateY(-1000px) scale(0.7);
+              transform: translateY(-1000px) scale(0.6) rotate(720deg);
+              opacity: 0;
+            }
+          }
+          @keyframes riseBubble2 {
+            0% {
+              transform: translateY(0) scale(0.9) rotate(0deg);
+              opacity: 0.7;
+            }
+            100% {
+              transform: translateY(-1100px) scale(1.1) rotate(-360deg);
               opacity: 0;
             }
           }

@@ -4,7 +4,7 @@ import eng1 from '../../assets/images/resource/service-1.jpg';
 import eng2 from '../../assets/images/resource/dk.jpg';
 import eng3 from '../../assets/images/resource/service-3.jpg';
 import eng4 from '../../assets/images/resource/service-4.jpg';
-import eng5 from '../../assets/images/resource/pexels-ranjeet-860714737-27928760.jpg';
+import eng5 from '../../assets/images/resource/pa6hvqgpaqfw6mgb.jpg';
 import eng6 from '../../assets/images/resource/service-6.jpg';
 
 const images = [eng1, eng2, eng3, eng4, eng5, eng6];

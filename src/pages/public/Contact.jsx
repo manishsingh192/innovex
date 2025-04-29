@@ -31,6 +31,7 @@ const Contact = () => {
           justifyContent: 'center',
           position: 'relative',
           textAlign: 'center',
+          
         }}
       >
         <Typography

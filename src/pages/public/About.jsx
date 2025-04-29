@@ -3,9 +3,12 @@ import {
   Box,
   Typography,
   Grid,
+  Container,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
-import ab1 from '../../assets/images/about/aboutt.jpg';
-import ab2 from '../../assets/images/about/about2.jpg';
+import ab1 from '../../assets/images/about/abbb.jpg';
+// import ab2 from '../../assets/images/about/about2.jpg';
 
 // Icons
 import MemoryIcon from '@mui/icons-material/Memory';
@@ -22,14 +25,101 @@ const features = [
   { label: 'Best Quality', icon: <GradeIcon sx={{ fontSize: 40, color: '#13c46e' }} /> },
 ];
 
-const workSteps = [
-  { label: 'Client Needs', icon: <PeopleIcon sx={{ fontSize: 40, color: '#13c46e' }} /> },
-  { label: 'Planning Design', icon: <DesignServicesIcon sx={{ fontSize: 40, color: '#13c46e' }} /> },
-  { label: 'Architect Sketch', icon: <ArchitectureIcon sx={{ fontSize: 40, color: '#13c46e' }} /> },
-  { label: 'Start Product', icon: <BuildIcon sx={{ fontSize: 40, color: '#13c46e' }} /> },
+const lifecycleSteps = [
+  'Client Brief',
+  'Planning',
+  'Design',
+  'Prototyping',
+  'Testing',
+  'Production',
+  'Delivery',
 ];
 
+const EngineeringDesignWorkflow = [
+  'Requirement Gathering',
+  'CAD Modelling',
+  'Simulation/Analysis',
+  'Design Review',
+  'Final Drawings'
+];
+
+const QualityAssuranceProcess = [
+  'Incoming Materials',
+  'Inspection',
+  'In-Process Checks',
+  'Final Product Testing',
+];
+
+const ProductDevelopmentPhases = [
+  'Sketch',
+  'CAD',
+  'Prototype (3D printed or CNC)',
+  'Tested Product',
+];
+
+const ProcessCard = ({ title, steps, icon, color }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  return (
+    <Box sx={{
+      backgroundColor: '#fff',
+      borderRadius: 3,
+      boxShadow: '0px 4px 20px rgba(0,0,0,0.1)',
+      p: 4,
+      height: '100%',
+      borderTop: `4px solid ${color}`,
+    }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+        <Box sx={{
+          backgroundColor: color,
+          color: '#fff',
+          borderRadius: '50%',
+          width: 50,
+          height: 50,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          mr: 2,
+        }}>
+          {icon}
+        </Box>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', color }}>
+          {title}
+        </Typography>
+      </Box>
+      <Box sx={{ pl: 2 }}>
+        {steps.map((step, index) => (
+          <Box key={index} sx={{ display: 'flex', mb: 2 }}>
+            <Box sx={{
+              backgroundColor: color,
+              color: '#fff',
+              borderRadius: '50%',
+              minWidth: 25,
+              height: 25,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              mr: 2,
+              fontSize: '0.8rem',
+              fontWeight: 'bold',
+            }}>
+              {index + 1}
+            </Box>
+            <Typography variant="body1" sx={{ color: '#424242' }}>
+              {step}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
+    </Box>
+  );
+};
+
 const About = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <>
       {/* Hero Section */}
@@ -67,10 +157,11 @@ const About = () => {
           gutterBottom
           sx={{
             fontWeight: 'bold',
-            color: '#13c46e',
+            color: '#6724ec',
             position: 'relative',
             display: 'inline-block',
             mb: 3,
+            fontSize: isMobile ? '2rem' : '2.5rem',
             '&::after': {
               content: '""',
               position: 'absolute',
@@ -88,178 +179,197 @@ const About = () => {
           About Us
         </Typography>
 
-        <Typography
-          variant="h6"
-          gutterBottom
-          sx={{ fontStyle: 'italic', mb: 3 }}
-        >
-          We train leaders who change the world.
+        <Typography variant="h6" gutterBottom sx={{ fontStyle: 'italic', mb: 3 }}>
+          We train Engineers who change the world.
         </Typography>
 
-        <Typography
-          variant="body1"
-          sx={{
-            mt: 2,
-            maxWidth: '800px',
-            mx: 'auto',
-            lineHeight: 1.8,
-            color: '#424242',
-          }}
-        >
-          Mechanical engineers don’t just react to society’s needs. They innovate;
-          they lead. They set the agenda and guide the conversation. We prepare
-          students to make an impact in the world, through a robust curriculum,
-          meaningful research opportunities, and rich design experiences.
+        <Typography variant="body1" sx={{
+          mt: 2,
+          maxWidth: '800px',
+          mx: 'auto',
+          lineHeight: 1.8,
+          color: '#424242',
+        }}>
+          Innovex Engineering 2022 is a diversified group based in Gujarat, India,
+          with world-class, fully integrated infrastructure. It is a CE-certified, 100%
+          'Make in India' organization focused on multi-engineering disciplines such
+          as design, metallurgy, fabrication, machining, infrastructure, and turnkey
+          solutions for a variety of business needs.
+        </Typography>
+
+        <Typography variant="body1" sx={{
+          mt: 2,
+          maxWidth: '800px',
+          mx: 'auto',
+          lineHeight: 1.8,
+          color: '#424242',
+        }}>
+          Innovex Engineering is backed by six decades of enviable history and a
+          reputation for delivering effective, economical, and environmentally efficient
+          solutions. The Innovex Engineering brand is known for its uncompromising quality,
+          indigenous technology, and innovation through its dedicated service to all its customers.
         </Typography>
       </Box>
 
-      {/* Why Choose Us Section */}
-      <Grid container sx={{ minHeight: { xs: 'auto', md: '80vh' }, px: { xs: 2, sm: 3, md: 12, lg: 12 } }}>
-        {/* Image Side */}
-        <Grid item xs={12} md={6}>
-          <Box
-            component="img"
-            src={ab2}
-            alt="Why Choose Us"
-            sx={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block',
-            }}
-          />
-        </Grid>
-
-        {/* Content Side */}
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-            backgroundColor: '#000',
-            color: '#fff',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            py: { xs: 4, md: 6 },
-            px: { xs: 2, sm: 3, md: 4 },
-          }}
-        >
-          <Typography variant="h4" gutterBottom>
-            🛠️ Why Choose Us
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            Reason for people choosing Innovex Engineering
-          </Typography>
-
-          {/* Grid Icons Box */}
-          <Box
-            sx={{
-              backgroundColor: '#fff',
-              color: '#000',
-              borderRadius: 2,
-              mt: 3,
-              p: { xs: 2, md: 3 },
-            }}
-          >
-            <Grid container spacing={2}>
-              {features.map((item, index) => (
-                <Grid key={index} item xs={12} sm={4} textAlign="center">
-                  {item.icon}
-                  <Typography variant="subtitle2" sx={{ mt: 1, fontWeight: 500 }}>
-                    {item.label}
-                  </Typography>
-                </Grid>
-              ))}
-            </Grid>
-          </Box>
-        </Grid>
-      </Grid>
-
-      {/* Work Process Section */}
-      <Box
-        sx={{
-          px: { xs: 2, sm: 3, md: 12, lg: 12 },
-          py: 8,
-          background: '#f9f9f9',
+      {/* Vision and Mission Section */}
+      <Container maxWidth="lg" sx={{ py: isMobile ? 3 : 5 }}>
+        <Typography variant="h3" gutterBottom sx={{
+          fontWeight: 'bold',
+          color: '#6724ec',
           textAlign: 'center',
-        }}
-      >
-        <Typography
-          variant="h3"
-          gutterBottom
-          sx={{
-            fontWeight: 'bold',
-            color: '#13c46e',
-            mb: 2,
-          }}
-        >
-          Work Process
-        </Typography>
-        <Typography variant="h5" gutterBottom sx={{ mb: 5 }}>
-          Our Working Process
+          mb: isMobile ? 3 : 5,
+          fontSize: isMobile ? '1.8rem' : '2.5rem',
+        }}>
+          Our Vision & <span style={{ color: '#13c46e' }}>Mission</span>
         </Typography>
 
-        <Grid container spacing={4} justifyContent="center">
-          {workSteps.map((step, index) => (
-            <Grid item xs={12} sm={6} md={3} key={index}>
-              <Box
-                sx={{
-                  p: 4,
-                  borderRadius: 3,
-                  boxShadow: '0px 4px 20px rgba(0,0,0,0.1)',
-                  backgroundColor: '#fff',
+        <Grid container spacing={isMobile ? 2 : 4}>
+          <Grid item xs={12} md={6}>
+            <Box sx={{
+              p: isMobile ? 2 : 4,
+              borderRadius: 3,
+              boxShadow: '0px 4px 20px rgba(0,0,0,0.1)',
+              backgroundColor: '#fff',
+              height: '100%',
+              borderLeft: '4px solid #13c46e',
+              transition: 'transform 0.3s',
+              '&:hover': {
+                transform: 'translateY(-5px)',
+              },
+            }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                <Box sx={{
+                  width: isMobile ? 40 : 50,
+                  height: isMobile ? 40 : 50,
+                  borderRadius: '50%',
+                  backgroundColor: '#6724ec',
+                  color: '#fff',
                   display: 'flex',
-                  flexDirection: 'column',
                   alignItems: 'center',
-                  position: 'relative',
-                  transition: 'transform 0.3s',
-                  '&:hover': {
-                    transform: 'translateY(-5px)',
-                  },
-                  '&::after': {
-                    content: index !== workSteps.length - 1 ? '"→"' : '""',
-                    position: 'absolute',
-                    right: '-20px',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    fontSize: '24px',
-                    color: '#13c46e',
-                    display: { xs: 'none', md: 'block' },
-                  },
-                }}
-              >
-                <Box
-                  sx={{
-                    width: 50,
-                    height: 50,
-                    borderRadius: '50%',
-                    backgroundColor: '#13c46e',
-                    color: '#fff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontWeight: 'bold',
-                    mb: 2,
-                    fontSize: 18,
-                  }}
-                >
-                  {index + 1}
+                  justifyContent: 'center',
+                  mr: 2,
+                }}>
+                  <Typography variant="h5">👁️</Typography>
                 </Box>
-                {step.icon}
-                <Typography variant="subtitle1" sx={{ mt: 2, fontWeight: 500 }}>
-                  {step.label}
+                <Typography variant="h4" sx={{
+                  fontWeight: 'bold',
+                  color: '#6724ec',
+                  fontSize: isMobile ? '1.3rem' : '2rem',
+                }}>
+                  Our Vision
                 </Typography>
               </Box>
-            </Grid>
-          ))}
+              <Typography variant="body1" sx={{
+                lineHeight: 1.8,
+                color: '#424242',
+                fontSize: isMobile ? '0.9rem' : '1rem',
+              }}>
+                Engineering excellence for a sustainable future, we indigenously developed our
+                integrated facilities to meet this goal. With our focus on extensive Engineering
+                Excellence, every member of the engineering team is fostered within a culture of
+                constant incremental improvements.
+              </Typography>
+            </Box>
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <Box sx={{
+              p: isMobile ? 2 : 4,
+              borderRadius: 3,
+              boxShadow: '0px 4px 20px rgba(0,0,0,0.1)',
+              backgroundColor: '#fff',
+              height: '100%',
+              borderLeft: '4px solid #00c2ff',
+              transition: 'transform 0.3s',
+              '&:hover': {
+                transform: 'translateY(-5px)',
+              },
+            }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2  }}>
+                <Box sx={{
+                  width: isMobile ? 40 : 50,
+                  height: isMobile ? 40 : 50,
+                  borderRadius: '50%',
+                  backgroundColor: '#13c481',
+                  color: '#fff',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mr: 2,
+                }}>
+                  <Typography variant="h5">🎯</Typography>
+                </Box>
+                <Typography variant="h4" sx={{
+                  fontWeight: 'bold',
+                  color: '#13c46e',
+                  fontSize: isMobile ? '1.3rem' : '2rem',
+                }}>
+                  Our Mission
+                </Typography>
+              </Box>
+              <Typography variant="body1" sx={{
+                lineHeight: 1.8,
+                color: '#424242',
+                fontSize: isMobile ? '0.9rem' : '1rem',
+              }}>
+                Our mission is to offer full-service engineering solutions to businesses, focusing
+                on building long-term value. By leveraging technology and industry expertise, we
+                help clients achieve high-quality results in product design and manufacturing.
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+
+      {/* Process and Card Section */}
+      <Box sx={{
+        px: { xs: 2, sm: 3, md: 12, lg: 12 },
+        py: 15, 
+      }}>
+        <Typography variant="h4" gutterBottom sx={{
+          fontWeight: 'bold',
+          color: '#6724ec',
+          textAlign: 'center',
+          mb: 5,
+        }}>
+          Work Process
+        </Typography>
+
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <ProcessCard 
+              title="1. Project Lifecycle Overview" 
+              steps={lifecycleSteps} 
+              icon={<PeopleIcon sx={{ fontSize: 24 }} />}
+              color="#6724ec"
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <ProcessCard 
+              title="2. Engineering Design Workflow" 
+              steps={EngineeringDesignWorkflow} 
+              icon={<DesignServicesIcon sx={{ fontSize: 24 }} />}
+              color="#13c46e"
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <ProcessCard 
+              title="3. Quality Assurance Process" 
+              steps={QualityAssuranceProcess} 
+              icon={<GradeIcon sx={{ fontSize: 24 }} />}
+              color="#6724ec"
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <ProcessCard 
+              title="4. Product Development Phases" 
+              steps={ProductDevelopmentPhases} 
+              icon={<BuildIcon sx={{ fontSize: 24 }} />}
+              color="#13c46e"
+            />
+          </Grid>
         </Grid>
       </Box>
-
-<Box>
-  <Forall/>
-</Box>
-
     </>
   );
 };

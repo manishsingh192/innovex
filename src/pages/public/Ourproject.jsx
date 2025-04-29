@@ -9,20 +9,20 @@ import p1 from '../../assets/images/gallery/1.jpg';
 import p2 from '../../assets/images/gallery/2.jpg';
 import p3 from '../../assets/images/gallery/3.jpg';
 import p4 from '../../assets/images/gallery/4.jpg';
-// import p5 from '../../assets/images/gallery/5.jpg';
+import p5 from '../../assets/images/gallery/5.jpg';
 
 const projectData = [
-  { id: 1, title: '3D CAD Modeling', description: 'Designed mechanical components and assemblies using SolidWorks and AutoCAD.', image: p1 },
-  { id: 2, title: 'Thermal Heat Sink Analysis', description: 'Analyzed heat dissipation performance of heat sinks using ANSYS.', image: p2 },
-  { id: 3, title: 'Robotic Arm Design', description: 'Developed a functional robotic arm prototype using Arduino and servo motors.', image: p3 },
-  { id: 4, title: 'CFD Simulation of Airflow', description: 'Performed Computational Fluid Dynamics simulations to optimize ventilation systems.', image: p4 },
+  { id: 1, title: 'Road Construction', image: p1 },
+  { id: 2, title: 'crusher', image: p2 },
+  { id: 3, title: 'design', image: p3 },
+  { id: 4, title: 'solar', image: p4 },
+  { id: 5, title: 'Power plant', image: p5 },
 
-  { id: 1, title: '3D CAD Modeling', description: 'Designed mechanical components and assemblies using SolidWorks and AutoCAD.', image: p1 },
-  { id: 2, title: 'Thermal Heat Sink Analysis', description: 'Analyzed heat dissipation performance of heat sinks using ANSYS.', image: p2 },
-  { id: 3, title: 'Robotic Arm Design', description: 'Developed a functional robotic arm prototype using Arduino and servo motors.', image: p3 },
-  { id: 4, title: 'CFD Simulation of Airflow', description: 'Performed Computational Fluid Dynamics simulations to optimize ventilation systems.', image: p4 },
-  
-
+  { id: 1, title: 'Road Construction', image: p1 },
+  { id: 2, title: 'crusher', image: p2 },
+  { id: 3, title: ' Design', image: p3 },
+  { id: 4, title: 'Solar', image: p4 },
+  { id: 5, title: 'Power plant', image: p5 },
 ];
 
 
@@ -70,6 +70,7 @@ const Ourproject = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+            
             }}
           >
             <Box

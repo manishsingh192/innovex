@@ -11,10 +11,13 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Collapse,
   Menu,
   MenuItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 import { NavLink, useLocation } from "react-router-dom";
 import mlogo from "../assets/INNOVEX (2).png";
 
@@ -22,8 +25,7 @@ const navItems = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   {
-    label: "Project",
-    path: "/project",
+    label: "Project", path: "/project",
     children: [
       { label: "Roads  Highway", path: "/project/roadshighway" },
       { label: "Rails  Metro", path: "/project/railsmetro" },
@@ -37,40 +39,57 @@ const navItems = [
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openProjects, setOpenProjects] = useState(false);
   const [projectMenuAnchor, setProjectMenuAnchor] = useState(null);
   const timeoutRef = useRef(null);
   const location = useLocation();
   const primaryColor = "#13c46e";
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prev) => !prev);
-  };
-  
+  const handleDrawerToggle = () => setMobileOpen((prev) => !prev);
   const isActive = (path) => location.pathname === path;
   const startsWith = (path) => location.pathname.startsWith(path);
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+    <Box sx={{ width: 240 }} onClick={handleDrawerToggle}>
+      <Box sx={{ textAlign: "center", my: 2 }}>
         <img src={mlogo} alt="Logo" height="60" />
-      </Typography>
+      </Box>
       <List>
         {navItems.map(({ label, path, children }) => (
           <Box key={label}>
-            <ListItem disablePadding>
-              <ListItemButton
-                component={NavLink}
-                to={path}
-                sx={{
-                  textAlign: "center",
-                  color: startsWith(path) ? primaryColor : "inherit",
-                }}
-              >
-                <ListItemText primary={label} />
-              </ListItemButton>
-            </ListItem>
-            {children?.map(({ label, path }) => (
-              <ListItem key={label} disablePadding sx={{ pl: 4 }}>
+            {children ? (
+              <>
+                <ListItemButton
+                  onClick={() => setOpenProjects(!openProjects)}
+                  sx={{
+                    color: startsWith(path) ? primaryColor : "inherit",
+                  }}
+                >
+                  <ListItemText primary={label} />
+                  {openProjects ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+                <Collapse in={openProjects} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {children.map((child) => (
+                      <ListItemButton
+                        key={child.label}
+                        component={NavLink}
+                        to={child.path}
+                        sx={{
+                          pl: 4,
+                          color: isActive(child.path)
+                            ? primaryColor
+                            : "inherit",
+                        }}
+                      >
+                        <ListItemText primary={child.label} />
+                      </ListItemButton>
+                    ))}
+                  </List>
+                </Collapse>
+              </>
+            ) : (
+              <ListItem disablePadding>
                 <ListItemButton
                   component={NavLink}
                   to={path}
@@ -82,7 +101,7 @@ const Navbar = () => {
                   <ListItemText primary={label} />
                 </ListItemButton>
               </ListItem>
-            ))}
+            )}
           </Box>
         ))}
       </List>
@@ -97,14 +116,14 @@ const Navbar = () => {
         sx={{
           backgroundColor: "white",
           color: "#000",
-          py: 0.5,
-          px: { xs: 2, sm: 3, md: 12, lg: 12 },
+          // py: 0.5,
+          // px: { xs: 2, sm: 3, md: 12, lg: 12 },
         }}
       >
         <Toolbar>
+          {/* Mobile Menu Button */}
           <IconButton
             color="inherit"
-            aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
@@ -112,6 +131,7 @@ const Navbar = () => {
             <MenuIcon />
           </IconButton>
 
+          {/* Logo */}
           <Typography
             variant="h6"
             component="div"
@@ -120,6 +140,7 @@ const Navbar = () => {
             <img src={mlogo} alt="Logo" height="60px" width="110px" />
           </Typography>
 
+          {/* Desktop Menu */}
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map(({ label, path, children }) =>
               children ? (
@@ -163,24 +184,18 @@ const Navbar = () => {
                           150
                         )),
                     }}
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left",
-                    }}
-                    transformOrigin={{
-                      vertical: "top",
-                      horizontal: "left",
-                    }}
+                    anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                    transformOrigin={{ vertical: "top", horizontal: "left" }}
                   >
-                    {children.map(({ label, path }) => (
+                    {children.map((child) => (
                       <MenuItem
-                        key={label}
+                        key={child.label}
                         component={NavLink}
-                        to={path}
+                        to={child.path}
                         onClick={() => setProjectMenuAnchor(null)}
-                        selected={isActive(path)}
+                        selected={isActive(child.path)}
                       >
-                        {label}
+                        {child.label}
                       </MenuItem>
                     ))}
                   </Menu>
@@ -207,6 +222,7 @@ const Navbar = () => {
         </Toolbar>
       </AppBar>
 
+      {/* Mobile Drawer */}
       <Box component="nav">
         <Drawer
           variant="temporary"
@@ -222,6 +238,7 @@ const Navbar = () => {
         </Drawer>
       </Box>
 
+      {/* Spacer */}
       <Box sx={{ p: 3, width: "100%" }} />
     </Box>
   );

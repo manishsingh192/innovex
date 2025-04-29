@@ -21,10 +21,10 @@ const Ourindustary = () => {
             gutterBottom
             sx={{
               fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-              fontWeight: 700,
+              fontWeight: 700,color:'#6724ec'
             }}
           >
-            Innovex Engineering
+            Innovex <span style={{color:'#12be6b'}}>Engineering</span> 
           </Typography>
 
           <Typography
@@ -44,10 +44,10 @@ const Ourindustary = () => {
             sx={{
               fontSize: { xs: '1.4rem', sm: '1.6rem', md: '1.8rem' },
               fontWeight: 600,
-              mb: 1,
+              mb: 1,color:'#6724ec'
             }}
           >
-            Our Mission
+            Our <span style={{color:'#12be6b'}}>Mission</span> 
           </Typography>
 
           <Typography

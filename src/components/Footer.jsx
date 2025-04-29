@@ -1,57 +1,100 @@
 import React from 'react';
-import { Box, Grid, Typography, IconButton } from '@mui/material';
-import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
+import { Box, Grid, Typography, Link, Button, TextField } from '@mui/material';
+import { Email, Phone, LocationOn } from '@mui/icons-material';
 
 const Footer = () => {
   return (
     <Box
       sx={{
-        backgroundColor: '#1e1e2f',
-        py: 6,
-        px: { xs: 2, sm: 4, md: 10 },
+        backgroundColor: '#1a1a2e',
+        py: 8,
+        px: { xs: 3, sm: 5, md: 10 },
         color: 'white',
-        boxShadow: '0px -10px 30px rgba(0,0,0,0.3)',
-        transformStyle: 'preserve-3d',
+        boxShadow: '0px -5px 25px rgba(0,0,0,0.4)',
+        backgroundImage: 'linear-gradient(to bottom, #1a1a2e, #16213e)',
+        borderTop: '1px solid rgba(255,255,255,0.05)',
       }}
     >
-      <Grid container spacing={4}>
+      <Grid container spacing={6} alignItems="flex-start"> {/* Changed to align at top */}
         {/* Left Column */}
         <Grid item xs={12} md={4}>
+          <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
           <Typography
-            variant="h6"
-            sx={{ fontWeight: 600, fontSize: '1.2rem', mb: 1 }}
-          >
-            Innovex Engineering
-          </Typography>
-          <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.6)' }}>
-            Empowering industry through innovation and technology.
-          </Typography>
-          <Typography variant="caption" display="block" sx={{ mt: 2, color: 'gray' }}>
-            © {new Date().getFullYear()} All rights reserved.
-          </Typography>
+  variant="h5"
+  sx={{
+    fontWeight: 700,
+    mb: 2,
+    color: '#5e17eb', // Just normal text color
+    display: 'inline-block'
+  }}
+>
+  Innovex <span style={{ color: '#26c87a' }}>Engineering</span>
+</Typography>
+
+            <Typography variant="body1" sx={{ 
+              color: 'rgba(255,255,255,0.7)', 
+              mb: 3,
+              lineHeight: 1.6
+            }}>
+              Empowering industry through cutting-edge innovation and sustainable technology solutions.
+            </Typography>
+            
+            <Box sx={{ display: 'flex', gap: 2, mt: 'auto' }}> {/* Pushed social icons down */}
+              {['Facebook', 'Twitter', 'LinkedIn', 'Instagram'].map((social) => (
+                <Link 
+                  key={social} 
+                  href="#" 
+                  sx={{
+                    color: 'rgba(255,255,255,0.7)',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      color: '#13c46e',
+                      transform: 'translateY(-2px)'
+                    }
+                  }}
+                >
+                  {social}
+                </Link>
+              ))}
+            </Box>
+          </Box>
         </Grid>
 
-        {/* Center Column: Subscribe */}
-        <Grid item xs={12} md={4} sx={{ textAlign: 'center' }}>
+        {/* Center Column: Subscribe - Now properly aligned */}
+        <Grid item xs={12} md={4}>
           <Box
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
               height: '100%',
               gap: 2,
-              px: 2,
             }}
           >
-            <Typography variant="h6" sx={{ fontWeight: 500 }}>
+            <Typography variant="h6" sx={{ 
+              fontWeight: 600,
+              mb: 1,
+              position: 'relative',
+              '&:after': {
+                content: '""',
+                position: 'absolute',
+                bottom: -8,
+                left: 0,
+                width: 40,
+                height: 2,
+                background: 'linear-gradient(90deg, #13c46e, #00d4ff)',
+                borderRadius: 2
+              }
+            }}>
               Stay Updated
             </Typography>
             <Typography
               variant="body2"
-              sx={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}
+              sx={{ 
+                color: 'rgba(255,255,255,0.6)', 
+                mb: 2
+              }}
             >
-              Subscribe to our newsletter
+              Get the latest news and updates delivered to your inbox
             </Typography>
 
             <Box
@@ -61,122 +104,188 @@ const Footer = () => {
                 display: 'flex',
                 flexDirection: { xs: 'column', sm: 'row' },
                 width: '100%',
-                maxWidth: 320,
-                gap: 1,
+                maxWidth: 350,
+                gap: 1.5,
               }}
             >
-              <input
-                type="email"
+              <TextField
+                variant="outlined"
                 placeholder="Your email"
+                type="email"
                 required
-                style={{
+                size="small"
+                sx={{
                   flex: 1,
-                  padding: '10px 14px',
-                  borderRadius: '4px',
-                  border: 'none',
-                  outline: 'none',
-                  fontSize: '0.95rem',
+                  '& .MuiOutlinedInput-root': {
+                    '& fieldset': {
+                      borderColor: 'rgba(255,255,255,0.2)',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: 'rgba(255,255,255,0.4)',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#13c46e',
+                    },
+                    backgroundColor: 'rgba(255,255,255,0.05)',
+                    borderRadius: 1,
+                    color: 'white',
+                  },
+                  '& .MuiInputBase-input': {
+                    py: 1,
+                    fontSize: '0.9rem',
+                  },
                 }}
               />
-              <button
+              <Button
                 type="submit"
-                style={{
-                  backgroundColor: '#13c46e',
+                variant="contained"
+                sx={{
+                  background: 'linear-gradient(135deg, #13c46e, #00d4ff)',
                   color: 'white',
-                  border: 'none',
-                  borderRadius: '4px',
-                  padding: '10px 16px',
-                  fontSize: '0.9rem',
-                  cursor: 'pointer',
+                  borderRadius: 1,
+                  px: 3,
+                  py: 1,
+                  fontWeight: 600,
+                  textTransform: 'none',
+                  boxShadow: '0 4px 15px rgba(19, 196, 110, 0.3)',
                   transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 6px 20px rgba(19, 196, 110, 0.4)',
+                    background: 'linear-gradient(135deg, #0fa75d, #00b8e6)',
+                  },
                 }}
-                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#0fa75d')}
-                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#13c46e')}
               >
                 Subscribe
-              </button>
+              </Button>
             </Box>
           </Box>
         </Grid>
 
-        {/* Right Column: Social Icons */}
+        {/* Right Column: Contact Info */}
         <Grid item xs={12} md={4}>
           <Box
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: { xs: 'center', md: 'flex-end' },
-              justifyContent: 'center',
               height: '100%',
-              gap: 1.5,
+              gap: 2.5,
             }}
           >
-            <Typography variant="h6" sx={{ fontWeight: 500 }}>
-              Connect With Us
+            <Typography variant="h6" sx={{ 
+              fontWeight: 600,
+              mb: 1,
+              position: 'relative',
+              '&:after': {
+                content: '""',
+                position: 'absolute',
+                bottom: -8,
+                right: 0,
+                width: 40,
+                height: 2,
+                // background: 'linear-gradient(90deg, #00d4ff, #13c46e)',
+                borderRadius: 2
+              }
+            }}>
+              Address
             </Typography>
-            <Box>
-              <IconButton
-                href="https://facebook.com"
+            <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5 }}>
+              <LocationOn sx={{ color: '#13c46e', fontSize: '1.2rem', mt: 0.5 }} />
+              <Link
+                href="https://www.google.com/maps/search/?api=1&query=Plot+No-A-7+Phase1+GNFCTWP+GiDC+Bharuch+Gujarat-392015"
                 target="_blank"
-                sx={{
-                  color: 'white',
-                  transition: 'transform 0.3s ease',
+                underline="none"
+                sx={{ 
+                  color: 'rgba(255,255,255,0.7)', 
+                  fontSize: '0.95rem',
+                  transition: 'all 0.3s ease',
                   '&:hover': {
-                    transform: 'scale(1.2) rotate(10deg)',
-                    color: '#3b5998',
-                  },
+                    color: '#13c46e',
+                    transform: 'translateX(3px)'
+                  }
                 }}
               >
-                <Facebook />
-              </IconButton>
-              <IconButton
-                href="https://twitter.com"
-                target="_blank"
-                sx={{
-                  color: 'white',
-                  transition: 'transform 0.3s ease',
-                  '&:hover': {
-                    transform: 'scale(1.2) rotate(10deg)',
-                    color: '#1da1f2',
-                  },
-                }}
-              >
-                <Twitter />
-              </IconButton>
-              <IconButton
-                href="https://instagram.com"
-                target="_blank"
-                sx={{
-                  color: 'white',
-                  transition: 'transform 0.3s ease',
-                  '&:hover': {
-                    transform: 'scale(1.2) rotate(10deg)',
-                    color: '#e1306c',
-                  },
-                }}
-              >
-                <Instagram />
-              </IconButton>
-              <IconButton
-                href="https://linkedin.com"
-                target="_blank"
-                sx={{
-                  color: 'white',
-                  transition: 'transform 0.3s ease',
-                  '&:hover': {
-                    transform: 'scale(1.2) rotate(10deg)',
-                    color: '#0077b5',
-                  },
-                }}
-              >
-                <LinkedIn />
-              </IconButton>
+                Plot No.-A-7, Phase 1, GNFCTWP,<br />
+                GiDC, Bharuch, Gujarat - 392015
+              </Link>
             </Box>
+
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+              <Email sx={{ color: '#13c46e', fontSize: '1.2rem' }} />
+              <Link
+                href="mailto:info@innovexengineering.com"
+                underline="none"
+                sx={{ 
+                  color: 'rgba(255,255,255,0.7)', 
+                  fontSize: '0.95rem',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    color: '#13c46e',
+                    transform: 'translateX(3px)'
+                  }
+                }}
+              >
+                info@innovexengineering.com
+              </Link>
+            </Box>
+
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+              <Phone sx={{ color: '#13c46e', fontSize: '1.2rem' }} />
+              <Link
+                href="tel:+919876543210"
+                underline="none"
+                sx={{ 
+                  color: 'rgba(255,255,255,0.7)', 
+                  fontSize: '0.95rem',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    color: '#13c46e',
+                    transform: 'translateX(3px)'
+                  }
+                }}
+              >
+                +91 98765 43210
+              </Link>
+            </Box>
+            
+            <Button
+              variant="outlined"
+              sx={{
+                mt: 'auto', // Pushes button to bottom
+                alignSelf: { xs: 'center', md: 'flex-start' },
+                color: '#13c46e',
+                borderColor: 'rgba(19, 196, 110, 0.5)',
+                borderRadius: 1,
+                px: 3,
+                py: 1,
+                fontWeight: 500,
+                textTransform: 'none',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  backgroundColor: 'rgba(19, 196, 110, 0.1)',
+                  borderColor: '#13c46e',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 4px 10px rgba(19, 196, 110, 0.2)',
+                },
+              }}
+            >
+              Get a Quote
+            </Button>
           </Box>
         </Grid>
       </Grid>
+      
+      {/* Copyright - moved outside the main grid */}
+      <Typography variant="caption" display="block" sx={{ 
+        mt: 6, 
+        textAlign: 'center',
+        color: 'rgba(255,255,255,0.4)',
+        fontSize: '0.75rem'
+      }}>
+        © {new Date().getFullYear()} Innovex Engineering. All rights reserved.
+      </Typography>
     </Box>
   );
 };
 
-export default Footer;
+export default Footer; 

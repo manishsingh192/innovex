@@ -89,49 +89,6 @@ const Banner = () => {
             <Box sx={slideContainerStyle}>
               <img src={slide} alt={`Slide ${index + 1}`} style={imageStyle} />
 
-              {/* Floating Bubbles inside each slide */}
-              <Box
-                sx={{
-                  position: 'absolute',
-                  width: '100%',
-                  height: '100%',
-                  top: 0,
-                  left: 0,
-                  zIndex: 0,
-                  overflow: 'hidden',
-                }}
-              >
-                {Array.from({ length: 20 }).map((_, i) => {
-                  const size = 10 + Math.random() * 25;
-                  const color = colors[Math.floor(Math.random() * colors.length)];
-                  const duration = 5 + Math.random() * 8;
-                  const left = Math.random() * 100;
-                  const delay = Math.random() * 5;
-                  const rotation = Math.random() * 360; // Rotation effect
-                  const horizontalMovement = Math.random() * 20 - 10; // Slight horizontal movement
-
-                  return (
-                    <Box
-                      key={i}
-                      sx={{
-                        position: 'absolute',
-                        bottom: '-80px',
-                        width: size,
-                        height: size,
-                        backgroundColor: color,
-                        borderRadius: '50%',
-                        opacity: 0.4 + Math.random() * 0.5, // More transparent bubbles
-                        filter: 'blur(2px)', // Slightly more blurred
-                        animation: `riseBubble ${duration}s ease-in infinite`,
-                        animationDelay: `${delay}s`,
-                        left: `${left}%`,
-                        transform: `rotate(${rotation}deg) translateX(${horizontalMovement}px)`, // Added rotation and horizontal movement
-                      }}
-                    />
-                  );
-                })}
-              </Box>
-
               <Box sx={textBoxStyle}>
                 {index === 0 && (
                   <>
@@ -140,7 +97,7 @@ const Banner = () => {
                       data-aos="fade-down"
                       data-aos-duration="1000"
                     >
-                      Build A Better Carrier With Us.
+                      Build A Better Carrier With India.
                     </Typography>
                     <Typography
                       variant={isMobile ? 'h6' : 'h2'}
@@ -150,7 +107,7 @@ const Banner = () => {
                       Industrial Solutions
                     </Typography>
                     <Typography variant="body1">We construct your vision</Typography>
-                    <Typography variant="body1">Build A Better Carrier With Us.</Typography>
+                    <Typography variant="body1">Build A Better Carrier With India.</Typography>
                   </>
                 )}
 
@@ -195,51 +152,12 @@ const Banner = () => {
                       Solutions built for industry and the future
                     </Typography>
                     <Typography variant="body1">
-                      Delivering trusted quality across the USA
+                    Trusted Quality, Delivered Across India
                     </Typography>
                   </>
                 )}
 
-                <Box
-                  sx={{
-                    marginTop: '20px',
-                    display: 'flex',
-                    flexDirection: isMobile ? 'column' : 'row',
-                    alignItems: isMobile ? 'center' : 'flex-start',
-                    justifyContent: isMobile ? 'center' : 'flex-start', // Ensure buttons are centered on mobile
-                  }}
-                >
-                  <Button
-                    variant="contained"
-                    sx={{
-                      ...buttonStyle,
-                      background: index === 2 ? '#ffea00' : '#13c46e',
-                      color: 'black',
-                      ':hover': {
-                        backgroundColor: 'transparent',
-                        color: index === 2 ? 'yellow' : '#13c46e',
-                        border: `1px solid ${index === 2 ? 'yellow' : '#13c46e'}`,
-                      },
-                    }}
-                  >
-                    Get Quote
-                  </Button>
-
-                  <Button
-                    variant="outlined"
-                    sx={{
-                      ...buttonStyle,
-                      color: 'white',
-                      borderColor: 'grey.500',
-                      ':hover': {
-                        backgroundColor: index === 2 ? 'yellow' : '#13c46e',
-                        color: 'black',
-                      },
-                    }}
-                  >
-                    Learn More
-                  </Button>
-                </Box>
+                
               </Box>
             </Box>
           </SplideSlide>

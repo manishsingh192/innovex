@@ -58,9 +58,10 @@ const RoadsHighway = () => {
           variant="h3"
           color="white"
           fontWeight="bold"
-          sx={{ backgroundColor: 'rgba(0,0,0,0.4)', p: 2, borderRadius: 2 }}
+          sx={{ p: 2 }}
+          
         >
-          Roads & Highways Projects
+          Roads & <span >Highways Projects</span>
         </Typography>
       </Box>
 
