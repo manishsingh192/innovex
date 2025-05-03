@@ -220,7 +220,7 @@ const About = () => {
           mb: isMobile ? 3 : 5,
           fontSize: isMobile ? '1.8rem' : '2.5rem',
         }}>
-          Our Vision & <span style={{ color: '#13c46e' }}>Mission</span>
+          Our Vision & Mission
         </Typography>
 
         <Grid container spacing={isMobile ? 2 : 4}>
@@ -242,7 +242,7 @@ const About = () => {
                   width: isMobile ? 40 : 50,
                   height: isMobile ? 40 : 50,
                   borderRadius: '50%',
-                  backgroundColor: '#6724ec',
+                  backgroundColor: '#13c46e',
                   color: '#fff',
                   display: 'flex',
                   alignItems: 'center',
@@ -264,10 +264,9 @@ const About = () => {
                 color: '#424242',
                 fontSize: isMobile ? '0.9rem' : '1rem',
               }}>
-                Engineering excellence for a sustainable future, we indigenously developed our
-                integrated facilities to meet this goal. With our focus on extensive Engineering
-                Excellence, every member of the engineering team is fostered within a culture of
-                constant incremental improvements.
+               To be a globally recognized engineering services firm known for 
+               innovation, reliability, and client satisfaction,
+                setting new benchmarks in engineering excellence.
               </Typography>
             </Box>
           </Grid>
@@ -301,7 +300,7 @@ const About = () => {
                 </Box>
                 <Typography variant="h4" sx={{
                   fontWeight: 'bold',
-                  color: '#13c46e',
+                  color: '#6724ec',
                   fontSize: isMobile ? '1.3rem' : '2rem',
                 }}>
                   Our Mission
@@ -312,9 +311,11 @@ const About = () => {
                 color: '#424242',
                 fontSize: isMobile ? '0.9rem' : '1rem',
               }}>
-                Our mission is to offer full-service engineering solutions to businesses, focusing
-                on building long-term value. By leveraging technology and industry expertise, we
-                help clients achieve high-quality results in product design and manufacturing.
+                To empower industries with cutting-edge engineering solutions 
+                that drive progress, enhance operational efficiency, 
+                and contribute to a sustainable future. We achieve this 
+                through technical expertise, client collaboration, 
+                and a commitment to excellence.
               </Typography>
             </Box>
           </Grid>
@@ -349,7 +350,7 @@ const About = () => {
               title="2. Engineering Design Workflow" 
               steps={EngineeringDesignWorkflow} 
               icon={<DesignServicesIcon sx={{ fontSize: 24 }} />}
-              color="#13c46e"
+              color="#6724ec"
             />
           </Grid>
           <Grid item xs={12} md={6}>
@@ -365,7 +366,7 @@ const About = () => {
               title="4. Product Development Phases" 
               steps={ProductDevelopmentPhases} 
               icon={<BuildIcon sx={{ fontSize: 24 }} />}
-              color="#13c46e"
+              color="#6724ec"
             />
           </Grid>
         </Grid>

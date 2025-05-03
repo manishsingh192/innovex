@@ -13,6 +13,7 @@ const Footer = () => {
         boxShadow: '0px -5px 25px rgba(0,0,0,0.4)',
         backgroundImage: 'linear-gradient(to bottom, #1a1a2e, #16213e)',
         borderTop: '1px solid rgba(255,255,255,0.05)',
+        justifyContent: 'space-around'
       }}
     >
       <Grid container spacing={6} alignItems="flex-start"> {/* Changed to align at top */}
@@ -140,19 +141,19 @@ const Footer = () => {
                 type="submit"
                 variant="contained"
                 sx={{
-                  background: 'linear-gradient(135deg, #13c46e, #00d4ff)',
+                  background: '#5817eb',
                   color: 'white',
                   borderRadius: 1,
                   px: 3,
                   py: 1,
                   fontWeight: 600,
                   textTransform: 'none',
-                  boxShadow: '0 4px 15px rgba(19, 196, 110, 0.3)',
+                  // boxShadow: '()',
                   transition: 'all 0.3s ease',
                   '&:hover': {
                     transform: 'translateY(-2px)',
-                    boxShadow: '0 6px 20px rgba(19, 196, 110, 0.4)',
-                    background: 'linear-gradient(135deg, #0fa75d, #00b8e6)',
+                    // boxShadow: '0 6px 20px rgba(19, 196, 110, 0.4)',
+                    background: '#13c46e',
                   },
                 }}
               >
@@ -253,8 +254,8 @@ const Footer = () => {
               sx={{
                 mt: 'auto', // Pushes button to bottom
                 alignSelf: { xs: 'center', md: 'flex-start' },
-                color: '#13c46e',
-                borderColor: 'rgba(19, 196, 110, 0.5)',
+                color: '#5817eb',
+                borderColor: '#5817eb',
                 borderRadius: 1,
                 px: 3,
                 py: 1,

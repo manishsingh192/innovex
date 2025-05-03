@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography,Link } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
+import { useNavigate } from 'react-router-dom';
 
 import p1 from '../../assets/images/gallery/1.jpg';
 import p2 from '../../assets/images/gallery/2.jpg';
@@ -28,6 +29,12 @@ const projectData = [
 
 
 const Ourproject = () => {
+  
+    const navigate = useNavigate();
+  
+    const handleClick = () => {
+      navigate('/project');
+    };
   return (
     <Box sx={{ backgroundColor: 'white', padding: 4 }}>
        <Typography
@@ -102,7 +109,17 @@ const Ourproject = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+{/* <Box sx={{textAlign:'center',my:3}}>
+  <Link to="/project">
+<Button  variant="contained"
+      color="primary"
+      sx={{ px: 4, py: 1.5, fontWeight: 'bold', borderRadius: 2 }}
+
+onClick={handleClick}>View more</Button>
+</Link>
+</Box> */}
     </Box>
+    
   );
 };
 

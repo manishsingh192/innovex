@@ -6,14 +6,23 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Button,
 } from '@mui/material';
 
-import con1 from '../../assets/contact/con1.png';
+import con1 from '../../assets/contact/ct.jpg';
 import contactData from '../../mydata/contactData';
 import Forall from './Forall';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Career = () => {
-  return (
+  const navigate = useNavigate();
+
+  const handleApply = () =>{
+    navigate('/applyform')
+  } 
+   return (
     <>
       {/* 🌄 Background Banner Section */}
       <Box
@@ -81,6 +90,34 @@ const Career = () => {
         </Grid>
       </Box>
       <Box>
+
+         {/* VACANCIES we're CURRENTLY hiring */}
+                    <Box sx={{ backgroundColor: '#1e2024', 
+                      py: { xs: 2, md: 3, lg: 5 }, 
+                      px: { xs: 2, lg: 10, md: 5 } 
+                      }}>
+                        <Grid container spacing={3} justifyContent="space-between" alignItems="center">
+                            <Grid item xs={12} md={4}>
+                                <Typography variant="h4" color={'#FFF'} fontWeight={'bold'} lineHeight={1.5}>
+                                    <span style={{ fontSize: '16px' }}>VACANCIES</span><br />
+                                    WE’RE CURRENTLY<br />
+                                    HIRI
+                                    <span style={{ backgroundColor: '#ff4155', padding: '0px 50px 0px 0px', display: 'inline-block' }}>NG</span>
+                                </Typography>
+                            </Grid>
+        
+                            <Grid item xs={12} md={6} textAlign={'center'}>
+        
+                                <Typography variant='body2' color='#fff'>Unleash Your Potential, Empower Your Journey with career excellence</Typography>
+                            </Grid>
+        
+                            <Grid item xs={12} md={2}>
+                                <Button onClick={handleApply} variant='outlined' sx={{ color: '#fff', border: '1px solid #fff' }}>
+                                    Apply Now
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Box>
         <Forall/>
       </Box>
     </>

@@ -12,6 +12,8 @@ import RailsMetro from '../pages/public/RailsMetro';
 import Airport from '../pages/public/Airport'
 import Coalmining from '../pages/public/Coalmining'
 import Notfound from  '../components/Notfound'
+import ApplyForm from '../pages/public/ApplyForm'
+import Service from '../pages/public/Service'
 export default function PublicRoutes() {
   return (
     <>
@@ -21,15 +23,15 @@ export default function PublicRoutes() {
           <Route index element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/project' element={<Project />} />
+          <Route path='/service' element={<Service />} />
           <Route path='/career' element={<Career />} />
           <Route path='/contact' element={<Contact />} />
           <Route path="/project/roadshighway" element={<RoadsHighway />} />
           <Route path="/project/railsmetro" element={<RailsMetro />} />
           <Route path="/project/airport" element={<Airport />} />
-          <Route path="/project/coalmining" element={<Coalmining />}   />
-           
-
-        </Route>
+          <Route path="/project/coalmining" element={<Coalmining />} />
+          <Route path='/applyform' element={<ApplyForm/>} />
+            </Route>
         <Route path='*' element={<Notfound />} />
       </Routes>
     </>

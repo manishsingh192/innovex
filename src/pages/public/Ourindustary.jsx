@@ -24,7 +24,7 @@ const Ourindustary = () => {
               fontWeight: 700,color:'#6724ec'
             }}
           >
-            Innovex <span style={{color:'#12be6b'}}>Engineering</span> 
+            Innovex Engineering
           </Typography>
 
           <Typography
@@ -32,7 +32,7 @@ const Ourindustary = () => {
             paragraph
             sx={{
               fontSize: { xs: '1rem', sm: '1.05rem' },
-              color: 'text.secondary',
+              color: 'text.primary',
               mb: 2,
             }}
           >
@@ -55,8 +55,9 @@ const Ourindustary = () => {
             paragraph
             sx={{
               fontSize: { xs: '1rem', sm: '1.05rem' },
-              color: 'text.secondary',
+              color: 'text.primary',
               mb: 3,
+              fontWeight: 500,
             }}
           >
             Our mission is to leverage our engineering expertise and creative thinking to solve
@@ -68,10 +69,10 @@ const Ourindustary = () => {
           <Typography
             variant="h5"
             sx={{
-              fontSize: { xs: '1.2rem', sm: '1.3rem' },
+              fontSize: { xs: '1rem', sm: '1.05rem'  },
               color: 'text.primary',
               fontWeight: 500,
-              lineHeight: 1.6,
+              
             }}
           >
             We have established ourselves as a leading provider <br />
