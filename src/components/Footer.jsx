@@ -40,24 +40,7 @@ const Footer = () => {
               Empowering industry through cutting-edge innovation and sustainable technology solutions.
             </Typography>
             
-            <Box sx={{ display: 'flex', gap: 2, mt: 'auto' }}> {/* Pushed social icons down */}
-              {['Facebook', 'Twitter', 'LinkedIn', 'Instagram'].map((social) => (
-                <Link 
-                  key={social} 
-                  href="#" 
-                  sx={{
-                    color: 'rgba(255,255,255,0.7)',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      color: '#13c46e',
-                      transform: 'translateY(-2px)'
-                    }
-                  }}
-                >
-                  {social}
-                </Link>
-              ))}
-            </Box>
+            
           </Box>
         </Grid>
 
@@ -86,7 +69,7 @@ const Footer = () => {
                 borderRadius: 2
               }
             }}>
-              Stay Updated
+              support
             </Typography>
             <Typography
               variant="body2"

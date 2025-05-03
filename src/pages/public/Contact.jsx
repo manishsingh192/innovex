@@ -1,7 +1,7 @@
 import { Box, Typography, keyframes } from '@mui/material';
 import React from 'react';
 import Form from './Form';
-import c1 from '../../assets/contact/contact.jpg';
+import c1 from '../../assets/contact/4201.jpg';
 
 // Animation keyframes
 const fadeInUp = keyframes`
