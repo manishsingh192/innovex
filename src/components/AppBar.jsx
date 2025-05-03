@@ -71,7 +71,8 @@ const Navbar = () => {
                     '&:hover': { backgroundColor: 'action.hover' }
                   }}
                 >
-                  <ListItemText primary={label} />
+                  <ListItemText primary={label}
+                   />
                   {openProjects ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
                 <Collapse in={openProjects} timeout="auto" unmountOnExit>

@@ -6,7 +6,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
-  Button,
+  Button,keyframes
 } from '@mui/material';
 
 import con1 from '../../assets/contact/ct.jpg';
@@ -14,6 +14,18 @@ import contactData from '../../mydata/contactData';
 import Forall from './Forall';
 import { useNavigate } from 'react-router-dom';
 
+
+// Animation keyframes
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 
 const Career = () => {
@@ -39,15 +51,20 @@ const Career = () => {
           px: { xs: 2, sm: 3, md: 12 },
         }}
       >
-        <Typography
-          variant="h3"
-          sx={{
-            textShadow: '1px 1px 5px rgba(0,0,0,0.6)',
-            fontWeight: 600,
-          }}
-        >
-           Career
-        </Typography>
+         <Typography
+                  variant="h3"
+                  sx={{
+                    color: 'white',
+                    fontWeight: 700,
+                    animation: `${fadeInUp} 1.2s ease-out`,
+                    // backgroundColor: 'rgba(0,0,0,0.4)',
+                    px: 3,
+                    py: 1,
+                    borderRadius: 2,
+                  }}
+                >
+                  Career
+                </Typography>
       </Box>
 
       {/* 📦 Cards Section */}

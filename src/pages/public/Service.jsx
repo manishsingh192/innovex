@@ -3,12 +3,24 @@ import {
   Typography,Box,Card
   ,CardContent,
   CardMedia,
-  Grid,
+  Grid,keyframes
 } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import con1 from '../../assets/contact/con1.png';
 import contactData from '../../mydata/pData';
 import Forall from './Forall';
+
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 
 const Service = () => {
   return (
@@ -33,6 +45,7 @@ const Service = () => {
           sx={{
             textShadow: '1px 1px 5px rgba(0,0,0,0.6)',
             fontWeight: 600,
+            animation: `${fadeInUp} 1.2s ease-out`,
           }}
         >
           Our Services

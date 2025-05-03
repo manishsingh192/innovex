@@ -30,7 +30,7 @@ const What = () => {
         sx={{
           fontSize: { xs: '1.1rem', sm: '1.25rem' },
           fontWeight: 500,
-          color: 'text.secondary',
+          color: 'text.primary',
           mb: 1,
         }}
       >
@@ -41,7 +41,7 @@ const What = () => {
         variant="body1"
         sx={{
           fontSize: { xs: '1rem', sm: '1.05rem' },
-          color: 'text.secondary',
+          color: 'text.primary',
           mb: 4,
         }}
       >

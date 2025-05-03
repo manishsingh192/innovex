@@ -47,7 +47,7 @@ const Ourindustary = () => {
               mb: 1,color:'#6724ec'
             }}
           >
-            Our <span style={{color:'#12be6b'}}>Mission</span> 
+            Our Mission
           </Typography>
 
           <Typography

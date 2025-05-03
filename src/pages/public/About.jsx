@@ -5,7 +5,7 @@ import {
   Grid,
   Container,
   useMediaQuery,
-  useTheme,
+  useTheme,keyframes
 } from '@mui/material';
 import ab1 from '../../assets/images/about/abbb.jpg';
 // import ab2 from '../../assets/images/about/about2.jpg';
@@ -18,6 +18,18 @@ import BuildIcon from '@mui/icons-material/Build';
 import GradeIcon from '@mui/icons-material/Grade';
 import PeopleIcon from '@mui/icons-material/People';
 import Forall from './Forall';
+
+// Animation keyframes
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const features = [
   { label: 'Modern Technology', icon: <MemoryIcon sx={{ fontSize: 40, color: '#13c46e' }} /> },
@@ -136,9 +148,20 @@ const About = () => {
           textAlign: 'center',
         }}
       >
-        <Typography variant="h4" sx={{ p: 2, borderRadius: 2 }}>
-          About
-        </Typography>
+               <Typography
+                          variant="h3"
+                          sx={{
+                            color: 'white',
+                            fontWeight: 700,
+                            animation: `${fadeInUp} 1.2s ease-out`,
+                            // backgroundColor: 'rgba(0,0,0,0.4)',
+                            px: 3,
+                            py: 1,
+                            borderRadius: 2,
+                          }}
+                        >
+                          About
+                        </Typography>
       </Box>
 
       {/* About Us Section */}
@@ -183,33 +206,40 @@ const About = () => {
           We train Engineers who change the world.
         </Typography>
 
-        <Typography variant="body1" sx={{
-          mt: 2,
-          maxWidth: '800px',
-          mx: 'auto',
-          lineHeight: 1.8,
-          color: '#424242',
-        }}>
-          Innovex Engineering 2022 is a diversified group based in Gujarat, India,
-          with world-class, fully integrated infrastructure. It is a CE-certified, 100%
-          'Make in India' organization focused on multi-engineering disciplines such
-          as design, metallurgy, fabrication, machining, infrastructure, and turnkey
-          solutions for a variety of business needs.
-        </Typography>
+        <Typography
+    variant="body1"
+    sx={{
+      mt: 2,
+      lineHeight: 1.8,
+      color: 'black',
+      textAlign: 'justify',
+      fontSize: { xs: '0.95rem', sm: '1rem' },
+    }}
+  >
+    Innovex Engineering 2022 is a diversified group based in Gujarat, India,
+    with world-class, fully integrated infrastructure. It is a CE-certified, 100%
+    'Make in India' organization focused on multi-engineering disciplines such
+    as design, metallurgy, fabrication, machining, infrastructure, and turnkey
+    solutions for a variety of business needs.
+  </Typography>
 
-        <Typography variant="body1" sx={{
-          mt: 2,
-          maxWidth: '800px',
-          mx: 'auto',
-          lineHeight: 1.8,
-          color: '#424242',
-        }}>
-          Innovex Engineering is backed by six decades of enviable history and a
-          reputation for delivering effective, economical, and environmentally efficient
-          solutions. The Innovex Engineering brand is known for its uncompromising quality,
-          indigenous technology, and innovation through its dedicated service to all its customers.
-        </Typography>
-      </Box>
+  <Typography
+    variant="body1"
+    sx={{
+      mt: 2,
+      lineHeight: 1.8,
+      color: 'black',
+      textAlign: 'justify',
+      fontSize: { xs: '0.95rem', sm: '1rem' },
+    }}
+  >
+    Innovex Engineering is backed by six decades of enviable history and a
+    reputation for delivering effective, economical, and environmentally efficient
+    solutions. The Innovex Engineering brand is known for its uncompromising quality,
+    indigenous technology, and innovation through its dedicated service to all its customers.
+  </Typography>      
+  
+  </Box>
 
       {/* Vision and Mission Section */}
       <Container maxWidth="lg" sx={{ py: isMobile ? 3 : 5 }}>

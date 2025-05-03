@@ -29,7 +29,7 @@ const Footer = () => {
     display: 'inline-block'
   }}
 >
-  Innovex <span style={{ color: '#26c87a' }}>Engineering</span>
+  Innovex Engineering
 </Typography>
 
             <Typography variant="body1" sx={{ 
